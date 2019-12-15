@@ -2,7 +2,7 @@ from config import db
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    description = db.Column(db.String(80), unique=True, nullable=False)
+    description = db.Column(db.String(80), nullable=False)
     state = db.Column(db.SMALLINT, nullable=False, default=0)
     user_id = db.Column(db.Integer, nullable=False)
 
