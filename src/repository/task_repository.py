@@ -16,3 +16,9 @@ class TaskRepository:
         task.state = a_task['state']
         task.user_id = a_task['user_id']
         db.session.commit()
+    
+    def create(self, a_task):
+        task = Task(description = a_task['description'], \
+                state = a_task['state'], user_id=a_task['user_id'])
+        db.session.add(task)
+        db.session.commit()

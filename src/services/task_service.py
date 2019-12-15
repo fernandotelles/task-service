@@ -35,6 +35,12 @@ class TaskList(Resource):
         tasks = repository.all()
         return tasks, 200
 
+    def post(self):
+        args = parser.parse_args()
+        task = argsToDict(args)
+        repository.create(task)
+        return '', 201
+
 class TaskService(Resource):
     def put(self, task_id):
         abort_if_dont_exists(task_id)
